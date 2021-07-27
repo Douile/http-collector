@@ -156,7 +156,7 @@ fn parse_http<R: std::io::Read>(
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let matches = App::new("http-collector")
-        .description("Log incoming TCP/HTTP traffic easily and completely")
+        .about("Log incoming TCP/HTTP traffic easily and completely")
         .arg(
             Arg::with_name("port")
                 .short("p")

@@ -1,3 +1,4 @@
+use std::cmp::{Eq, PartialEq};
 use std::collections::HashMap;
 use std::fmt;
 use std::io::BufReader;
@@ -22,6 +23,18 @@ impl fmt::Debug for HttpStruct {
             "HTTP/{} {} {} {:?}",
             self.version, self.method, self.path, self.content
         )
+    }
+}
+
+impl Eq for HttpStruct {}
+
+impl PartialEq for HttpStruct {
+    fn eq(&self, other: &HttpStruct) -> bool {
+        self.method == other.method
+            && self.path == other.path
+            && self.version == other.version
+            && self.content == other.content
+            && self.headers == other.headers
     }
 }
 

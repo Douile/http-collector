@@ -9,8 +9,8 @@ use std::thread;
 
 use clap::{App, Arg};
 
-mod error;
-mod http;
+pub mod error;
+pub mod http;
 
 use http::parse_http;
 

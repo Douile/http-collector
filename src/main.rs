@@ -7,7 +7,7 @@ use std::str::FromStr;
 use std::sync::{Arc, Mutex};
 use std::thread;
 
-use clap::{App, Arg};
+use clap::{crate_version, App, Arg};
 
 pub mod error;
 pub mod http;
@@ -78,6 +78,7 @@ fn handle_client(stream: &TcpStream, config: &Config) -> std::io::Result<()> {
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut app = App::new("http-collector")
         .about("Log incoming TCP/HTTP traffic easily and completely")
+        .version(crate_version!())
         .arg(
             Arg::with_name("port")
                 .short("p")
